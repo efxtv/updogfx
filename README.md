@@ -47,6 +47,9 @@ Install using commands:
 
 **Serve from port 8080:**
 
+# Donate
+<a href="#"><img src="https://raw.githubusercontent.com/efxtv/EFX-Tv-Bookmarks/main/bin/PAYMENT/USDT.png" alt="CryptoUSDT" width="241" height="269"></a>
+
 ## Thanks
 
 Inspired by the [Updog](https://github.com/sc0tfree/updog)
