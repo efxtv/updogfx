@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Light gray background */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff; /* White background for content */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+        }
+        h1, h2 {
+            color: #333; /* Dark gray text color */
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #007bff; /* Blue button color */
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        progress {
+            width: 100%;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>UpdogFX</h1>
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" id="fileInput">
+            <button type="button" onclick="uploadFile()">Upload</button>
+        </form>
+        <h2>Uploaded Files:</h2>
+        <ul>
+            {% for file in files %}
+            <li><a href="{{ url_for('uploaded_file', filename=file) }}">{{ file }}</a></li>
+            {% endfor %}
+        </ul>
+        <div id="progressWrapper" style="display: none;">
+            <progress id="progressBar" value="0" max="100"></progress>
+            <div id="progressStatus">0%</div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            // Prevent form submission
+            event.preventDefault();
+            // Call uploadFile function when form is submitted
+            uploadFile();
+        });
+
+        function uploadFile() {
+            var fileInput = document.getElementById('fileInput');
+            var file = fileInput.files[0];
+            if (!file) {
+                alert('Please select a file.');
+                return;
+            }
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/upload', true);
+
+            xhr.upload.onprogress = function (e) {
+                if (e.lengthComputable) {
+                    var percentComplete = (e.loaded / e.total) * 100;
+                    document.getElementById('progressWrapper').style.display = 'block';
+                    document.getElementById('progressBar').value = percentComplete;
+                    document.getElementById('progressStatus').textContent = percentComplete.toFixed(2) + '%';
+                }
+            };
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    // Refresh the page after upload
+                    window.location.reload();
+                } else {
+                    alert('Error uploading file.');
+                }
+            };
+
+            var formData = new FormData();
+            formData.append('file', file);
+
+            xhr.send(formData);
+        }
+    </script>
+</body>
+</html>
