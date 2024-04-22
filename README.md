@@ -19,7 +19,7 @@ It serves as a replacement for Python's `SimpleHTTPServer`. Updogfx facilitates 
 
 Install using commands:
 
-`mkdir $PREFIX/opt/updog;git clone https://giturl.git $PREFIX/opt/;cd $PREFIX/opt/updogfx`
+`mkdir $PREFIX/opt/updogfx;git clone https://giturl.git $PREFIX/opt/;cd $PREFIX/opt/updogfx`
 
 `bash install.sh`
 
