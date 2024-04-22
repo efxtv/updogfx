@@ -48,7 +48,9 @@ Install using commands:
 **Serve from port 8080:**
 
 # Donate
-<a href="#"><img src="https://raw.githubusercontent.com/efxtv/EFX-Tv-Bookmarks/main/bin/PAYMENT/USDT.png" alt="CryptoUSDT" width="241" height="269"></a>
+---------------------------------------
+# Donate
+<a href="#"><img src="https://raw.githubusercontent.com/efxtv/EFX-Tv-Bookmarks/main/bin/DONATE/USDT.png" title="Please donate to support EFX Tv" alt="CryptoUSDT" width="241" height="269"></a>
 
 ## Thanks
 
