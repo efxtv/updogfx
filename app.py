@@ -2,6 +2,7 @@
 import argparse
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 import os
+import urllib.parse
 
 UPLOAD_FOLDER = os.getcwd()  # Set default upload folder to the present working directory
 
@@ -10,13 +11,16 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Simple file upload server with options.')
-    parser.add_argument('-d', '--directory', default=UPLOAD_FOLDER, help='Directory for storing uploaded files (default: current directory)')
+    parser.add_argument('-d', '--directory', default=UPLOAD_FOLDER, help='Absolute Directory path for storing uploaded files (default: current directory)')
     return parser.parse_args()
 
 def setup_directory(directory):
     if not os.path.exists(directory):
         os.makedirs(directory)
         print(f"Upload directory '{directory}' created.")
+
+def save_file(file, filename):
+    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
 @app.route('/')
 def index():
@@ -30,12 +34,13 @@ def upload_file():
     file = request.files['file']
     if file.filename == '':
         return redirect(request.url)
-    filename = file.filename
-    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    filename = urllib.parse.quote(file.filename)
+    save_file(file, filename)
     return redirect(url_for('index'))
 
-@app.route('/uploads/<filename>')
+@app.route('/uploads/<path:filename>')
 def uploaded_file(filename):
+    filename = urllib.parse.unquote(filename)
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 if __name__ == '__main__':
