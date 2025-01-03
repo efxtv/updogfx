@@ -1,3 +1,6 @@
+pkg install python
 pip install -r requirements.txt
-chmod +x bin/updogfx;cd bin
-ln -s $PWD/updogfx $PREFIX/bin/
+chmod +x bin/updogfx;
+cp bin/updogfx $PREFIX/bin/
+
+echo 'Installed at $P/opt/updogfx'
