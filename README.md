@@ -11,7 +11,7 @@ Now updog is supported in Termux (termux updog).
 We developed updogfx to be compatible with Termux, requiring minimal resources. 
 It serves as a replacement for Python's `SimpleHTTPServer`. Updogfx facilitates uploading and downloading via HTTP/S with the help of an Android browser.
 
-[JOIN us on Telegram](https://t.me/efxtv)
+[JOIN us on Telegram](https://t.me/LinuxClassesEFXTv)
 
 <p align="center">
   <img src="#" alt="Updogfx screenshot"/>
