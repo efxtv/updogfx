@@ -1,57 +1,30 @@
-![Version 1.0](http://img.shields.io/badge/version-v1.4-green.svg)
-![Python 3](http://img.shields.io/badge/python-3.8-blue.svg)
-
-<p>
-  <img src="#" width=85px alt="UPDOGFX"/>
-</p>
-
-# Updog Termux / Linux
+# UpdogFX
 
 Updogfx (termux / Linux) is a replacement for Python's `SimpleHTTPServer`. It allows uploading and downloading via HTTP/S, can set ad hoc SSL certificates and use http basic auth. Inspired by updog.
 
-[JOIN us on Telegram](https://t.me/LinuxClassesEFXTv)
+## Supported devices 
+1. Linux
+2. Termux
+3. Windows
 
-<p align="center">
-  <img src="#" alt="Updogfx screenshot"/>
-</p>
+## Features
+- Upload and download files via HTTP
+- Reverse SSH tunneling support using Serveo
+- Lightweight and Termux/Linux compatible
 
 ## Installation
 
-Install using commands:
+## Linux Users
 
-`mkdir $PREFIX/opt/updogfx;git clone https://giturl.git $PREFIX/opt/;cd $PREFIX/opt/updogfx`
+```bash
+python3 -m venv myenv
+source myenv/bin/activate
+pip install updogfx
+```
+## Termux Users
+```bash
+pip install updogfx
+```
+Please Join us on [telegram](https://t.me/LinuxClassesEFXTv) let us know if you like this project :)
 
-`bash install.sh`
-
-`updogfx`
-
-## Usage
-
-`updog [-d DIRECTORY] [-p PORT] [--password PASSWORD] [--ssl]`
-
-| Argument                            | Description                                      |
-|-------------------------------------|--------------------------------------------------| 
-| -d DIRECTORY, --directory DIRECTORY | Path to upload folder [Default=current directory]| 
-| -p PORT, --port PORT                | Port number to listen on (default: 8080)         |
-| -h, --help                          | Show help                                        |
-
-## Examples
-
-**Serve from your current directory:**
-
-`updog`
-
-**Serve from another directory:**
-
-`updog -d /another/directory`
-
-**Serve from port 8080:**
-
-# Donate
----------------------------------------
-# Donate
-<a href="#"><img src="https://raw.githubusercontent.com/efxtv/EFX-Tv-Bookmarks/main/bin/DONATE/USDT.png" title="Please donate to support EFX Tv" alt="CryptoUSDT" width="241" height="269"></a>
-
-## Thanks
-
-Inspired by the [Updog](https://github.com/sc0tfree/updog)
+## BUYME A COFFEE: [https://buymeacoffee.com/efxtv](https://buymeacoffee.com/efxtv)
