@@ -7,9 +7,7 @@
 
 # Updog Termux / Linux
 
-Now updog is supported in Termux (termux updog).
-We developed updogfx to be compatible with Termux, requiring minimal resources. 
-It serves as a replacement for Python's `SimpleHTTPServer`. Updogfx facilitates uploading and downloading via HTTP/S with the help of an Android browser.
+Updogfx (termux / Linux) is a replacement for Python's `SimpleHTTPServer`. It allows uploading and downloading via HTTP/S, can set ad hoc SSL certificates and use http basic auth. Inspired by updog.
 
 [JOIN us on Telegram](https://t.me/LinuxClassesEFXTv)
 
