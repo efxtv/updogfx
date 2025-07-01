@@ -9,7 +9,7 @@ Updogfx (termux / Linux) is a replacement for Python's `SimpleHTTPServer`. It al
 
 ## Features
 - Upload and download files via HTTP
-- Reverse SSH tunneling support using Serveo
+- Https links to share file using cloudflard 
 - Lightweight and Termux/Linux compatible
 
 ## Installation
